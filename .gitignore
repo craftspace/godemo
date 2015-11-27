@@ -1,0 +1,6 @@
+.idea
+*.iml
+src/bower_components
+src/assets/styles/all.css
+dist
+node_modules
