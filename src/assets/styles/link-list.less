@@ -1,0 +1,47 @@
+.link-list {
+  .link-item {
+    margin-bottom: 20px;
+    &:extend(.clearfix all); // Why doesn't work?
+  }
+  .rank {
+    float: left;
+    width: 20px;
+    font-size: 20px;
+    line-height: 40px;
+  }
+  .vote-block {
+    float: left;
+    width: 40px;
+    margin-right: 10px;
+    text-align: center;
+    .fa {
+      font-size: 26px;
+      padding-left: 5px;
+      &:hover {
+        font-weight: bold;
+        cursor: pointer;
+      }
+    }
+  }
+  .link-thumb {
+    float: left;
+    margin-right: 10px;
+    width: 70px;
+    img {
+      width: 70px;
+    }
+  }
+  .link-summary {
+    p {
+      margin: 0;
+    }
+    .title {
+    }
+    .link-meta {
+      li {
+        float: left;
+        margin-right: 20px;
+      }
+    }
+  }
+}

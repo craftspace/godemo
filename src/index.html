@@ -9,7 +9,7 @@
 </head>
 <body>
 <!--Navbar block-->
-<nav class="navbar navbar-default navbar-fixed-top">
+<nav class="topbar navbar navbar-default navbar-fixed-top">
   <div class="container">
     <div class="navbar-header">
       <button type="button" class="navbar-toggle collapsed" data-toggle="collapse"
@@ -19,16 +19,18 @@
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
       </button>
-      <a class="navbar-brand" href="#">vLink</a>
+      <a class="navbar-brand" href="#"><i class="fa fa-link"></i><strong>vLink</strong></a>
     </div>
 
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
       <ul class="nav navbar-nav">
-        <li class="active"><a href="#">Link <span class="sr-only">(current)</span></a></li>
-        <li><a href="#">Link</a></li>
+        <li class="active"><a href="#">Home <span class="sr-only">(current)</span></a></li>
+        <li><a href="#">Communities</a></li>
+        <li><a href="#">People</a></li>
         <li class="dropdown">
-          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Dropdown <span
-            class="caret"></span></a>
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+            <i class="fa fa-ellipsis-h"></i>
+          </a>
           <ul class="dropdown-menu" role="menu">
             <li><a href="#">Action</a></li>
             <li><a href="#">Another action</a></li>
@@ -47,52 +49,196 @@
         <button type="submit" class="btn btn-default">Submit</button>
       </form>
       <ul class="nav navbar-nav navbar-right">
-        <li><a href="#">Link</a></li>
+        <li><a href="#"><i class="fa fa-bell"></i></a></li>
+        <li><a href="#" class="avatar"><img src="assets/images/avatar_0.jpg" alt=""></a></li>
       </ul>
     </div>
   </div>
 </nav>
 
-<!--Welcome block-->
-<div class="container jumbotron">
-  <h1>Jumbotron</h1>
-  <p>This is a simple hero unit, a simple jumbotron-style component for calling extra attention to featured content or information.</p>
-  <p><a class="btn btn-primary btn-lg">Learn more</a></p>
-</div>
+<!--Main body-->
+<div class="container main-body">
 
-<div class="container">
-  <!--Tab content-->
-  <ul class="nav nav-tabs">
-    <li class="active"><a href="#home" data-toggle="tab">Home</a></li>
-    <li><a href="#profile" data-toggle="tab">Profile</a></li>
-    <li class="disabled"><a>Disabled</a></li>
-    <li class="dropdown">
-      <a class="dropdown-toggle" data-toggle="dropdown" href="#">
-        Dropdown <span class="caret"></span>
-      </a>
-      <ul class="dropdown-menu">
-        <li><a href="#dropdown1" data-toggle="tab">Action</a></li>
-        <li class="divider"></li>
-        <li><a href="#dropdown2" data-toggle="tab">Another action</a></li>
-      </ul>
-    </li>
-  </ul>
-
-  <div id="myTabContent" class="tab-content">
-    <div class="tab-pane fade active in" id="home">
-      <p>Raw denim you probably haven't heard of them jean shorts Austin. Nesciunt tofu stumptown aliqua, retro synth master cleanse. Mustache cliche tempor, williamsburg carles vegan helvetica. Reprehenderit butcher retro keffiyeh dreamcatcher synth. Cosby sweater eu banh mi, qui irure terry richardson ex squid. Aliquip placeat salvia cillum iphone. Seitan aliquip quis cardigan american apparel, butcher voluptate nisi qui.</p>
-    </div>
-    <div class="tab-pane fade" id="profile">
-      <p>Food truck fixie locavore, accusamus mcsweeney's marfa nulla single-origin coffee squid. Exercitation +1 labore velit, blog sartorial PBR leggings next level wes anderson artisan four loko farm-to-table craft beer twee. Qui photo booth letterpress, commodo enim craft beer mlkshk aliquip jean shorts ullamco ad vinyl cillum PBR. Homo nostrud organic, assumenda labore aesthetic magna delectus mollit.</p>
-    </div>
-    <div class="tab-pane fade" id="dropdown1">
-      <p>Etsy mixtape wayfarers, ethical wes anderson tofu before they sold out mcsweeney's organic lomo retro fanny pack lo-fi farm-to-table readymade. Messenger bag gentrify pitchfork tattooed craft beer, iphone skateboard locavore carles etsy salvia banksy hoodie helvetica. DIY synth PBR banksy irony. Leggings gentrify squid 8-bit cred pitchfork.</p>
-    </div>
-    <div class="tab-pane fade" id="dropdown2">
-      <p>Trust fund seitan letterpress, keytar raw denim keffiyeh etsy art party before they sold out master cleanse gluten-free squid scenester freegan cosby sweater. Fanny pack portland seitan DIY, art party locavore wolf cliche high life echo park Austin. Cred vinyl keffiyeh DIY salvia PBR, banh mi before they sold out farm-to-table VHS viral locavore cosby sweater.</p>
-    </div>
+  <!--Welcome block-->
+  <div class="alert alert-dismissible alert-info welcome-block">
+    <button type="button" class="close" data-dismiss="alert">×</button>
+    <h3 class="title">Welcome!</h3>
+    <p class="desc">it looks like you haven't <span class="label label-default">subscribed</span> to any vlinks yet. want some ideas?</p>
+    <input type="text" class="form-control input-sm" placeholder="what are you interested in?">
   </div>
 
+  <div class="row">
+    <div class="col-xs-12 col-md-8">
+      <!--Tab content-->
+      <ul class="nav nav-tabs">
+        <li class="active"><a href="#home" data-toggle="tab">hot</a></li>
+        <li><a href="#profile" data-toggle="tab">new</a></li>
+        <li><a href="#profile" data-toggle="tab">rising</a></li>
+        <li><a href="#profile" data-toggle="tab">top</a></li>
+        <li><a href="#profile" data-toggle="tab">controversial</a></li>
+        <li><a href="#profile" data-toggle="tab">promoted</a></li>
+        <li><a href="#profile" data-toggle="tab">wiki</a></li>
+        <li class="dropdown">
+          <a class="dropdown-toggle" data-toggle="dropdown" href="#">
+            more <span class="caret"></span>
+          </a>
+          <ul class="dropdown-menu">
+            <li><a href="#dropdown1" data-toggle="tab">Action</a></li>
+            <li class="divider"></li>
+            <li><a href="#dropdown2" data-toggle="tab">Another action</a></li>
+          </ul>
+        </li>
+      </ul>
+
+      <ol class="link-list">
+        <li class="link-item clearfix">
+          <span class="rank">1</span>
+          <div class="vote-block">
+            <i class="fa fa-angle-up">&nbsp;</i>
+            <div class="score">4888</div>
+            <i class="fa fa-angle-down">&nbsp;</i>
+          </div>
+          <a class="link-thumb" href="http://imgur.com/qGfjMDr">
+            <img src="assets/images/image_0.jpg">
+          </a>
+          <div class="link-summary">
+            <p class="title">
+              <a class="" href="http://imgur.com/qGfjMDr">
+                The paint on this chocolate shop's door is worn away perfectly to reveal all of its previous colors (Traverse City, Mi)</a>
+              <span class="domain">(<a href="/domain/imgur.com/">imgur.com</a>)</span>
+            </p>
+            <p class="link-date text-muted">
+              submitted
+              <time title="" datetime="">
+                5 hours ago
+              </time>
+              by
+              <a href="https://www.reddit.com/user/BradlyL">BradlyL</a>
+            </p>
+            <ul class="link-meta">
+              <li>
+                <a href="/link/123456">406 comments</a>
+              </li>
+              <li>
+                <a href="javascript:void(0)">share</a>
+              </li>
+              <li>
+                <a href="#">save</a>
+              </li>
+              <li>
+                <a href="javascript:void(0)" class="">report</a>
+              </li>
+            </ul>
+          </div>
+        </li>
+        <li class="link-item clearfix">
+          <span class="rank">1</span>
+          <div class="vote-block">
+            <i class="fa fa-angle-up">&nbsp;</i>
+            <div class="score">4888</div>
+            <i class="fa fa-angle-down">&nbsp;</i>
+          </div>
+          <a class="link-thumb" href="http://imgur.com/qGfjMDr">
+            <img src="assets/images/image_0.jpg">
+          </a>
+          <div class="link-summary">
+            <p class="title">
+              <a class="" href="http://imgur.com/qGfjMDr">
+                The paint on this chocolate shop's door is worn away perfectly to reveal all of its previous colors (Traverse City, Mi)</a>
+              <span class="domain">(<a href="/domain/imgur.com/">imgur.com</a>)</span>
+            </p>
+            <p class="link-date text-muted">
+              submitted
+              <time title="" datetime="">
+                5 hours ago
+              </time>
+              by
+              <a href="https://www.reddit.com/user/BradlyL">BradlyL</a>
+            </p>
+            <ul class="link-meta">
+              <li>
+                <a href="/link/123456">406 comments</a>
+              </li>
+              <li>
+                <a href="javascript:void(0)">share</a>
+              </li>
+              <li>
+                <a href="#">save</a>
+              </li>
+              <li>
+                <a href="javascript:void(0)" class="">report</a>
+              </li>
+            </ul>
+          </div>
+        </li>
+        <li class="link-item clearfix">
+          <span class="rank">1</span>
+          <div class="vote-block">
+            <i class="fa fa-angle-up">&nbsp;</i>
+            <div class="score">4888</div>
+            <i class="fa fa-angle-down">&nbsp;</i>
+          </div>
+          <a class="link-thumb" href="http://imgur.com/qGfjMDr">
+            <img src="assets/images/image_0.jpg">
+          </a>
+          <div class="link-summary">
+            <p class="title">
+              <a class="" href="http://imgur.com/qGfjMDr">
+                The paint on this chocolate shop's door is worn away perfectly to reveal all of its previous colors (Traverse City, Mi)</a>
+              <span class="domain">(<a href="/domain/imgur.com/">imgur.com</a>)</span>
+            </p>
+            <p class="link-date text-muted">
+              submitted
+              <time title="" datetime="">
+                5 hours ago
+              </time>
+              by
+              <a href="https://www.reddit.com/user/BradlyL">BradlyL</a>
+            </p>
+            <ul class="link-meta">
+              <li>
+                <a href="/link/123456">406 comments</a>
+              </li>
+              <li>
+                <a href="javascript:void(0)">share</a>
+              </li>
+              <li>
+                <a href="#">save</a>
+              </li>
+              <li>
+                <a href="javascript:void(0)" class="">report</a>
+              </li>
+            </ul>
+          </div>
+        </li>
+      </ol>
+    </div>
+    <!--right-->
+    <div class="col-xs-12 col-md-4">
+      <h4 class="page-header">recently viewed links</h4>
+      <ol class="link-list">
+        <li class="link-item clearfix">
+          <div class="vote-block">
+            <i class="fa fa-angle-up"></i>
+            <div class="score">4888</div>
+            <i class="fa fa-angle-down"></i>
+          </div>
+          <div class="link-summary">
+            <p class="title">
+              <a class="" href="http://imgur.com/qGfjMDr">
+                The paint on this chocolate shop's door is worn away perfectly to reveal all of its previous colors (Traverse City, Mi)</a>
+              <span class="domain">(<a href="/domain/imgur.com/">imgur.com</a>)</span>
+            </p>
+            <ul class="link-meta">
+              <li>
+                <a href="/link/123456">406 comments</a>
+              </li>
+            </ul>
+          </div>
+        </li>
+      </ol>
+    </div>
+  </div>
 </div>
 <script src="bower_components/requirejs/require.js"></script>
 <script src="assets/scripts/require.config.js"></script>

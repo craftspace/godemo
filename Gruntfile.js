@@ -2,7 +2,8 @@ module.exports = function(grunt) {
   "use strict";
 
   grunt.initConfig({
-
+    port: 5601,
+    liveReloadPort: 35729,
     // Import package manifest
     pkg: grunt.file.readJSON("package.json"),
 
@@ -93,8 +94,38 @@ module.exports = function(grunt) {
     // watch for changes to source
     // Better than calling grunt a million times
     watch: {
-      files: ["src/assets/*"],
-      tasks: ["default"]
+      js: {
+        files: ["src/**/*.js"],
+        tasks: ["jshint"]
+      },
+      css: {
+        files: ["src/**/*.less"],
+        tasks: ["less", "concat:css"]
+      },
+      options: {
+        livereload: "<%=liveReloadPort%>"
+      }
+    },
+
+    open: {
+      server: {
+        path: 'http://localhost:<%=port%>/'
+      }
+    },
+
+    connect: {
+      dev: {
+        options: {
+          port: "<%=port%>",
+          livereload: true,
+          middleware: function() {
+            return [
+              require('serve-static')("src"),
+              require("connect-livereload")({port: "<%=liveReloadPort%>"})
+            ];
+          }
+        }
+      }
     }
 
   });
@@ -105,9 +136,11 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks("grunt-contrib-less");
   grunt.loadNpmTasks("grunt-contrib-cssmin");
   grunt.loadNpmTasks("grunt-contrib-watch");
+  grunt.loadNpmTasks('grunt-contrib-connect');
+  grunt.loadNpmTasks("grunt-open");
 
   grunt.registerTask("build", ["less", "concat:css", "uglify", "cssmin"/*, "uglify:js"*/]);
-  grunt.registerTask("default", ["jshint", "build"]);
+  grunt.registerTask("default", ["jshint", "build", "connect:dev", "open", "watch"]);
   grunt.registerTask("travis", ["default"]);
 
 };
