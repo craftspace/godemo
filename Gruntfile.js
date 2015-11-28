@@ -51,7 +51,7 @@ module.exports = function(grunt) {
           separator: ""
         },
         files: {
-          "src/assets/styles/all.css": ["src/assets/styles/all.css", "src/assets/styles/vendor/**/*.css"]
+          "src/assets/styles/all.css": ["src/assets/styles/all.css", "src/assets/styles/vendor/*.css"]
         }
       }
     },
@@ -99,7 +99,7 @@ module.exports = function(grunt) {
         tasks: ["jshint"]
       },
       css: {
-        files: ["src/**/*.less"],
+        files: ["src/**/*.{less,css}"],
         tasks: ["less", "concat:css"]
       },
       options: {

@@ -1,3 +1,4 @@
+//css reset + override
 ol, ul {
   list-style: none;
   padding-left: 0;
@@ -5,4 +6,36 @@ ol, ul {
 
 .main-body {
   margin-top: 60px;
+  .nav-tabs > li.active > a,
+  .nav-tabs > li.active > a:focus,
+  .nav-tabs > li.active > a:hover {
+    margin-top: -2px;
+    border-top: 3px solid #dd4814;
+  }
+  .nav > li > a {
+    padding: 4px 15px;
+  }
+  .nav > li > a:hover,
+  .nav > li > a:focus {
+    margin-top: -2px;
+    background-color: #fff;
+    border-top: 3px solid #dd4814;
+    border-bottom: 1px solid #fff;
+  }
+  .nav-tabs {
+    margin-top: -32px;
+    &.nav {
+      margin-bottom: 20px;
+      li {
+        float: right;
+      }
+      .dropdown-menu {
+        li {
+          float: none;
+        }
+      }
+    }
+
+  }
 }
+

@@ -68,16 +68,10 @@
   </div>
 
   <div class="row">
-    <div class="col-xs-12 col-md-8">
+    <div class="col-xs-12 col-md-9">
+      <h4>Top Links</h4>
       <!--Tab content-->
       <ul class="nav nav-tabs">
-        <li class="active"><a href="#home" data-toggle="tab">hot</a></li>
-        <li><a href="#profile" data-toggle="tab">new</a></li>
-        <li><a href="#profile" data-toggle="tab">rising</a></li>
-        <li><a href="#profile" data-toggle="tab">top</a></li>
-        <li><a href="#profile" data-toggle="tab">controversial</a></li>
-        <li><a href="#profile" data-toggle="tab">promoted</a></li>
-        <li><a href="#profile" data-toggle="tab">wiki</a></li>
         <li class="dropdown">
           <a class="dropdown-toggle" data-toggle="dropdown" href="#">
             more <span class="caret"></span>
@@ -88,6 +82,13 @@
             <li><a href="#dropdown2" data-toggle="tab">Another action</a></li>
           </ul>
         </li>
+        <li><a href="#profile" data-toggle="tab">new</a></li>
+        <li><a href="#profile" data-toggle="tab">rising</a></li>
+        <li><a href="#profile" data-toggle="tab">top</a></li>
+        <li><a href="#profile" data-toggle="tab">controversial</a></li>
+        <li><a href="#profile" data-toggle="tab">promoted</a></li>
+        <li><a href="#profile" data-toggle="tab">wiki</a></li>
+        <li class="active"><a href="#home" data-toggle="tab">hot</a></li>
       </ul>
 
       <ol class="link-list">
@@ -102,31 +103,38 @@
             <img src="assets/images/image_0.jpg">
           </a>
           <div class="link-summary">
-            <p class="title">
-              <a class="" href="http://imgur.com/qGfjMDr">
+            <div>
+              <a class="title" href="http://imgur.com/qGfjMDr">
                 The paint on this chocolate shop's door is worn away perfectly to reveal all of its previous colors (Traverse City, Mi)</a>
               <span class="domain">(<a href="/domain/imgur.com/">imgur.com</a>)</span>
-            </p>
-            <p class="link-date text-muted">
-              submitted
-              <time title="" datetime="">
-                5 hours ago
-              </time>
-              by
-              <a href="https://www.reddit.com/user/BradlyL">BradlyL</a>
-            </p>
+            </div>
+            <div class="clearfix">
+              <p class="link-date text-muted">
+                submitted
+                <time title="" datetime="">
+                  5 hours ago
+                </time>
+                by
+                <a href="https://www.reddit.com/user/BradlyL">BradlyL</a>
+              </p>
+              <div class="link-tags">
+                <span class="label label-default">Java</span>
+                <span class="label label-default">JS</span>
+                <span class="label label-default">Ruby</span>
+              </div>
+            </div>
             <ul class="link-meta">
               <li>
-                <a href="/link/123456">406 comments</a>
+                <a href="/link/123456"><i class="fa fa-comment-o"></i> 406 comments</a>
               </li>
               <li>
-                <a href="javascript:void(0)">share</a>
+                <a href="javascript:void(0)"><i class="fa fa-share-square-o"></i> share</a>
               </li>
               <li>
-                <a href="#">save</a>
+                <a href="#"><i class="fa fa-save"></i> save</a>
               </li>
               <li>
-                <a href="javascript:void(0)" class="">report</a>
+                <a href="javascript:void(0)" class=""><i class="fa fa-hand-stop-o"></i> report</a>
               </li>
             </ul>
           </div>
@@ -142,8 +150,8 @@
             <img src="assets/images/image_0.jpg">
           </a>
           <div class="link-summary">
-            <p class="title">
-              <a class="" href="http://imgur.com/qGfjMDr">
+            <p>
+              <a class="title" href="http://imgur.com/qGfjMDr">
                 The paint on this chocolate shop's door is worn away perfectly to reveal all of its previous colors (Traverse City, Mi)</a>
               <span class="domain">(<a href="/domain/imgur.com/">imgur.com</a>)</span>
             </p>
@@ -214,26 +222,33 @@
       </ol>
     </div>
     <!--right-->
-    <div class="col-xs-12 col-md-4">
-      <h4 class="page-header">recently viewed links</h4>
+    <div class="col-xs-12 col-md-3 sidebar">
+      <h4>Recently Viewed Links</h4>
       <ol class="link-list">
         <li class="link-item clearfix">
-          <div class="vote-block">
-            <i class="fa fa-angle-up"></i>
-            <div class="score">4888</div>
-            <i class="fa fa-angle-down"></i>
-          </div>
+          <!--<div class="vote-block">-->
+            <!--<i class="fa fa-angle-up"></i>-->
+            <!--<div class="score">4888</div>-->
+            <!--<i class="fa fa-angle-down"></i>-->
+          <!--</div>-->
           <div class="link-summary">
-            <p class="title">
-              <a class="" href="http://imgur.com/qGfjMDr">
+            <p>
+              <a class="title" href="http://imgur.com/qGfjMDr">
                 The paint on this chocolate shop's door is worn away perfectly to reveal all of its previous colors (Traverse City, Mi)</a>
               <span class="domain">(<a href="/domain/imgur.com/">imgur.com</a>)</span>
+            </p>
+            <p class="link-date text-muted">
+              submitted
+              <time title="" datetime="">
+                5 hours ago
+              </time>
+              by
+              <a href="https://www.reddit.com/user/BradlyL">BradlyL</a>
             </p>
             <ul class="link-meta">
               <li>
                 <a href="/link/123456">406 comments</a>
-              </li>
-            </ul>
+              </li>             </ul>
           </div>
         </li>
       </ol>
