@@ -1,0 +1,48 @@
+{{#data}}
+<li class="link-item clearfix">
+  <span class="rank">{{id}}</span>
+  <div class="vote-block">
+    <i class="fa fa-angle-up"></i>
+    <div class="score">{{votes}}</div>
+    <i class="fa fa-angle-down"></i>
+  </div>
+  <a class="link-thumb" href="{{url}}">
+    <img src="{{thumbnail}}">
+  </a>
+  <div class="link-summary">
+    <div>
+      <a class="title" href="{{url}}">{{title}}</a>
+      <span class="domain">(<a href="/domain/{{domain}}">{{domain}}</a>)</span>
+    </div>
+    <div class="clearfix">
+      <p class="link-date text-muted">
+        submitted
+        <time title="{{timestamp}}" datetime="{{timestamp}}">
+          {{timestamp}}
+        </time>
+        by
+        <a href="https://www.reddit.com/user/BradlyL">{{creator.username}}</a>
+      </p>
+      <ul class="link-tags">
+        {{#tags}}
+        <li><a href="/tags/{{.}}" class="label label-default">{{.}}</a></li>
+        {{/tags}}
+      </ul>
+    </div>
+    <ul class="link-meta">
+      <li>
+        <a href="/link/{{comments}}"><i class="fa fa-comment-o"></i> {{comments}} comments</a>
+      </li>
+      <li>
+        <a href="javascript:void(0)"><i class="fa fa-share-square-o"></i> share</a>
+      </li>
+      <li>
+        <a href="#"><i class="fa fa-save"></i> save</a>
+      </li>
+      <li>
+        <a href="javascript:void(0)" class=""><i class="fa fa-hand-stop-o"></i> report</a>
+      </li>
+    </ul>
+  </div>
+</li>
+{{/data}}

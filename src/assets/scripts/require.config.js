@@ -10,6 +10,8 @@
       lodash: "../../bower_components/underscore/underscore",
       bootstrap: "../../bower_components/bootstrap/dist/js/bootstrap",
       jquery: "../../bower_components/jquery/dist/jquery",
+      handlebars: "../../bower_components/handlebars/handlebars.runtime",
+      //template: "../../templates/all",
       text: "../../bower_components/requirejs-text/text"
     },
     shim: {
@@ -18,12 +20,15 @@
       },
       bootstrap: {
         deps: ["jquery"]
+      //},
+      //template: {
+      //  deps: ["handlebars"]
       }
     },
     callback: function() {
-      require(["bootstrap", function() {
-        require("../../app");
-      }]);
+      require(["bootstrap"], function() {
+        require(["../../app"]);
+      });
     }
   });
 }.call(this));

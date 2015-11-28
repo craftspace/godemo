@@ -1,0 +1,25 @@
+{{#data}}
+  <li class="link-item clearfix">
+    <div class="link-summary">
+      <div>
+        <a class="title" href="{{url}}">{{title}}</a>
+        <span class="domain">(<a href="/domain/{{domain}}">{{domain}}</a>)</span>
+      </div>
+      <div class="clearfix">
+        <p class="link-date text-muted">
+          submitted
+          <time title="{{timestamp}}" datetime="{{timestamp}}">
+            {{timestamp}}
+          </time>
+          by
+          <a href="https://www.reddit.com/user/BradlyL">{{creator.username}}</a>
+        </p>
+      </div>
+      <ul class="link-meta">
+        <li>
+          <a href="/link/{{comments}}"><i class="fa fa-comment-o"></i> {{comments}} comments</a>
+        </li>
+      </ul>
+    </div>
+  </li>
+{{/data}}

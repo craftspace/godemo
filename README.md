@@ -8,8 +8,8 @@
 
 # Run
     
-    grunt serve        // development
-    grunt serve:dist   // production
+    grunt serve     // development
+    grunt release   // production
 
 # Build
 
@@ -21,6 +21,5 @@
 
 # Build war
 
-    grunt release
 
 # Documentation

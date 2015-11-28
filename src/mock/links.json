@@ -1,0 +1,96 @@
+{
+  "data": [
+    {
+      "id": 1,
+      "title": "The paint on this chocolate shop's door is worn away perfectly to reveal all of its previous colors",
+      "tags": [
+        "java",
+        "ruby",
+        "php"
+      ],
+      "url": "https://www.reddit.com/",
+      "thumbnail": "http://b.thumbs.redditmedia.com/js6y5bNiUfL2Sf168X4QMIJSNLEgewl1cqvpSI2DYbI.jpg",
+      "domain": "imgur.com",
+      "creator": {
+        "id": 10,
+        "username": "BradlyL"
+      },
+      "timestamp": "1448717232133",
+      "votes": 1032,
+      "comments": 2313
+    },
+    {
+      "id": 2,
+      "title": "php function - how to make dynamic with a query",
+      "tags": [
+        "php"
+      ],
+      "url": "https://www.reddit.com/",
+      "thumbnail": "http://b.thumbs.redditmedia.com/8azewVkmSMooHf9CgcC3zjGwOxpIPw_OVUJCd0vZg_E.jpg",
+      "domain": "imgur.com",
+      "creator": {
+        "id": 12,
+        "username": "advancecreator"
+      },
+      "timestamp": "1448712232133",
+      "votes": 1331,
+      "comments": 1213
+    },
+    {
+      "id": 3,
+      "title": "I'm the worst gift wrapper ever. (2015 edition)",
+      "tags": [
+        "Python",
+        "Ruby",
+        "Java",
+        "HTML"
+      ],
+      "url": "https://www.reddit.com/",
+      "thumbnail": "http://b.thumbs.redditmedia.com/qXYaGAhKUHJDIRfJVfLp3FztxH-AKuYR0-VsjC7MuIo.jpg",
+      "domain": "imgur.com",
+      "creator": {
+        "id": 13,
+        "username": "Luke"
+      },
+      "timestamp": "1448732232133",
+      "votes": 1251,
+      "comments": 1143
+    },
+    {
+      "id": 4,
+      "title": "The paint on this chocolate shop's door is worn away perfectly to reveal all of its previous colors",
+      "tags": [
+        "java",
+        "ruby",
+        "php"
+      ],
+      "url": "https://www.reddit.com/",
+      "thumbnail": "http://b.thumbs.redditmedia.com/js6y5bNiUfL2Sf168X4QMIJSNLEgewl1cqvpSI2DYbI.jpg",
+      "domain": "imgur.com",
+      "creator": {
+        "id": 10,
+        "username": "BradlyL"
+      },
+      "timestamp": "1448717232133",
+      "votes": 1032,
+      "comments": 2313
+    },
+    {
+      "id": 5,
+      "title": "php function - how to make dynamic with a query",
+      "tags": [
+        "php"
+      ],
+      "url": "https://www.reddit.com/",
+      "thumbnail": "http://b.thumbs.redditmedia.com/8azewVkmSMooHf9CgcC3zjGwOxpIPw_OVUJCd0vZg_E.jpg",
+      "domain": "imgur.com",
+      "creator": {
+        "id": 12,
+        "username": "advancecreator"
+      },
+      "timestamp": "1448712232133",
+      "votes": 1331,
+      "comments": 1213
+    }
+  ]
+}

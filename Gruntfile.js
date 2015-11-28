@@ -4,6 +4,8 @@ module.exports = function(grunt) {
   grunt.initConfig({
     port: 5601,
     liveReloadPort: 35729,
+    srcDir: "src",
+    tempDir: "temp",
     // Import package manifest
     pkg: grunt.file.readJSON("package.json"),
 
@@ -19,18 +21,39 @@ module.exports = function(grunt) {
       " */\n"
     },
 
+    // Clean the project
+    clean: {
+      temp: ["<%=tempDir%>"]
+    },
+
+    // Copy files
+    copy: {
+      src: {
+        cwd: "<%=srcDir%>",
+        expand: true,
+        src: ["**/*", "!assets/**/*.{less,css}", "!*/*.hbs"],
+        dest: "<%=tempDir%>"
+      }
+    },
+
     // Compile less
     less: {
       compile: {
         files: {
-          "src/assets/styles/all.css": "src/assets/styles/**/*.less"
+          "<%=tempDir%>/assets/styles/all.css": "<%=srcDir%>/assets/styles/**/*.less"
+          //expand: true,
+          //cwd: "<%=srcDir%>/assets/styles/",
+          //src: ["**/*.less"],
+          //dest: "<%=tempDir%>/assets/styles/",
+          //ext: ".css",
+          //extDot: "last"
         }
       },
       compress: {
         options: {
           compress: true
         },
-        files: "src/assets/styles/all.css"
+        files: "<%=tempDir%>/assets/styles/all.css"
       }
     },
 
@@ -38,20 +61,22 @@ module.exports = function(grunt) {
     concat: {
       js: {
         options: {
-          banner: "<%= meta.banner %>"
+          banner: "<%=meta.banner%>"
         },
         files: {
-          src: ["src/app/*.js"],
-          dest: "dist/app.js"
+          "<%=tempDir%>/*.js": ["<%=tempDir%>/assets/scripts/**/*.js", "<%=tempDir%>/app.js"]
         }
       },
       css: {
         options: {
-          banner: "<%= meta.banner %>",
+          banner: "<%=meta.banner%>",
           separator: ""
         },
         files: {
-          "src/assets/styles/all.css": ["src/assets/styles/all.css", "src/assets/styles/vendor/*.css"]
+          "<%=tempDir%>/assets/styles/all.css": [
+            "<%=tempDir%>/assets/styles/all.css",
+            "<%=srcDir%>/assets/styles/vendor/*.css"
+          ]
         }
       }
     },
@@ -60,7 +85,7 @@ module.exports = function(grunt) {
     jshint: {
       files: [
         "Gruntfile.js",
-        "src/assets/**/*.js"
+        "./<%=srcDir%>/assets/**/*.js"
       ],
       options: {
         jshintrc: ".jshintrc"
@@ -71,10 +96,10 @@ module.exports = function(grunt) {
     uglify: {
       js: {
         options: {
-          banner: "<%= meta.banner %>"
+          banner: "<%=meta.banner%>"
         },
         files: {
-          "dist/app.js": ["src/assets/scripts/**/*.js"]
+          "<%=tempDir%>/app.js": "<%=tempDir%>/app.js"
         }
       }
     },
@@ -86,21 +111,42 @@ module.exports = function(grunt) {
       },
       compress: {
         files: {
-          "src/assets/styles/all.css": "src/assets/styles/all.css"
+          "<%=tempDir%>/assets/styles/all.css": "<%=tempDir%>/assets/styles/all.css"
         }
       }
     },
 
+    handlebars: {
+      compile: {
+        options: {
+          namespace: false,
+          amd: true,
+          processContent: function(content) {
+            content = content.replace(/^[\x20\t]+/mg, "").replace(/[\x20\t]+$/mg, "");
+            content = content.replace(/^[\r\n]+/, "").replace(/[\r\n]+$/, "");
+            return content;
+          }
+        },
+        files: {
+          "<%=tempDir%>/templates/link-item.js": ["<%=srcDir%>/templates/link-item.hbs"],
+          "<%=tempDir%>/templates/link-item-recent.js": ["<%=srcDir%>/templates/link-item-recent.hbs"]
+        }
+      }
+    },
     // watch for changes to source
     // Better than calling grunt a million times
     watch: {
       js: {
-        files: ["src/**/*.js"],
+        files: ["<%=srcDir%>/**/*.js"],
         tasks: ["jshint"]
       },
       css: {
-        files: ["src/**/*.{less,css}"],
+        files: ["<%=srcDir%>/**/*.{less,css}"],
         tasks: ["less", "concat:css"]
+      },
+      hbs: {
+        files: ["<%=srcDir%>/templates/*.hbs"],
+        tasks: ["handlebars"]
       },
       options: {
         livereload: "<%=liveReloadPort%>"
@@ -109,7 +155,7 @@ module.exports = function(grunt) {
 
     open: {
       server: {
-        path: 'http://localhost:<%=port%>/'
+        path: "http://localhost:<%=port%>/"
       }
     },
 
@@ -118,12 +164,8 @@ module.exports = function(grunt) {
         options: {
           port: "<%=port%>",
           livereload: true,
-          middleware: function() {
-            return [
-              require('serve-static')("src"),
-              require("connect-livereload")({port: "<%=liveReloadPort%>"})
-            ];
-          }
+          base: ["<%=tempDir%>"],
+          middleware: null
         }
       }
     }
@@ -132,15 +174,20 @@ module.exports = function(grunt) {
 
   grunt.loadNpmTasks("grunt-contrib-concat");
   grunt.loadNpmTasks("grunt-contrib-jshint");
+  grunt.loadNpmTasks("grunt-contrib-clean");
+  grunt.loadNpmTasks("grunt-contrib-copy");
   grunt.loadNpmTasks("grunt-contrib-uglify");
   grunt.loadNpmTasks("grunt-contrib-less");
   grunt.loadNpmTasks("grunt-contrib-cssmin");
+  grunt.loadNpmTasks("grunt-contrib-handlebars");
   grunt.loadNpmTasks("grunt-contrib-watch");
-  grunt.loadNpmTasks('grunt-contrib-connect');
+  grunt.loadNpmTasks("grunt-contrib-connect");
   grunt.loadNpmTasks("grunt-open");
 
-  grunt.registerTask("build", ["less", "concat:css", "uglify", "cssmin"/*, "uglify:js"*/]);
+  grunt.registerTask("build", ["clean", "copy:src", "less", "concat:css", "handlebars"]);
   grunt.registerTask("default", ["jshint", "build", "connect:dev", "open", "watch"]);
+  grunt.registerTask("release", ["default", "uglify", "cssmin", "connect:dev", "open", "watch"]);
+  grunt.registerTask("serve", ["default"]);
   grunt.registerTask("travis", ["default"]);
 
 };

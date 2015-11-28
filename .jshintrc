@@ -28,6 +28,8 @@
     "exports": true,
     "define": true,
     "module": true,
-    "require": true
+    "require": true,
+    "$": true,
+    "jQuery": true
   }
 }
