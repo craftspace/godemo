@@ -11,7 +11,7 @@
       bootstrap: "../../bower_components/bootstrap/dist/js/bootstrap",
       jquery: "../../bower_components/jquery/dist/jquery",
       handlebars: "../../bower_components/handlebars/handlebars.runtime",
-      //template: "../../templates/all",
+      page: "../../bower_components/page/page",
       text: "../../bower_components/requirejs-text/text"
     },
     shim: {
@@ -20,9 +20,6 @@
       },
       bootstrap: {
         deps: ["jquery"]
-      //},
-      //template: {
-      //  deps: ["handlebars"]
       }
     },
     callback: function() {

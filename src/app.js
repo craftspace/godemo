@@ -1,11 +1,17 @@
-define(["handlebars", "../../templates/link-item", "../../templates/link-item-recent"], function(hb, linkItemTemplate, linkItemRecentTemplate) {
+define([
+  "page", "link-list", "link-list-recent"
+], function(page) {
   "use strict";
-  var $ = jQuery,
-    $linkListContainer = $("#link_list"),
-    $linkListRecentContainer = $("#link_list_recent");
-  console.log(hb);
-  $.getJSON("mock/links.json").done(function(result) {
-    $linkListContainer.html(linkItemTemplate(result));
-    $linkListRecentContainer.html(linkItemRecentTemplate(result));
+
+  console.log(page);
+  page("/submit", function(ctx, next) {
+    console.log("ctx", ctx);
+    console.log("ctx", next);
   });
+
+  $("body").on("click", "a[data-href]", function(e) {
+    page("/submit");
+    e.preventDefault();
+  });
+
 });

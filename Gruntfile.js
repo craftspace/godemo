@@ -36,6 +36,12 @@ module.exports = function(grunt) {
         src: ["**/*", "!assets/**/*.{less,css}", "!*/*.hbs"],
         dest: "<%=tempDir%>"
       },
+      js: {
+        cwd: "<%=srcDir%>",
+        expand: true,
+        src: ["app.js", "assets/**/*.js"],
+        dest: "<%=tempDir%>"
+      },
       html: {
         cwd: "<%=srcDir%>",
         expand: true,
@@ -93,7 +99,8 @@ module.exports = function(grunt) {
     jshint: {
       files: [
         "Gruntfile.js",
-        "./<%=srcDir%>/assets/**/*.js"
+        "<%=srcDir%>/app.js",
+        "<%=srcDir%>/assets/**/*.js"
       ],
       options: {
         jshintrc: ".jshintrc"
@@ -146,7 +153,7 @@ module.exports = function(grunt) {
     watch: {
       js: {
         files: ["<%=srcDir%>/**/*.js"],
-        tasks: ["jshint"]
+        tasks: ["jshint", "copy:js"]
       },
       css: {
         files: ["<%=srcDir%>/**/*.{less,css}"],
