@@ -143,8 +143,12 @@ module.exports = function(grunt) {
           }
         },
         files: {
-          "<%=tempDir%>/templates/link-item.js": ["<%=srcDir%>/templates/link-item.hbs"],
-          "<%=tempDir%>/templates/link-item-recent.js": ["<%=srcDir%>/templates/link-item-recent.hbs"]
+          // any other choices?
+          "<%=tempDir%>/templates/components/link-item.js": ["<%=srcDir%>/templates/components/link-item.hbs"],
+          "<%=tempDir%>/templates/components/link-item-recent.js": ["<%=srcDir%>/templates/components/link-item-recent.hbs"],
+          "<%=tempDir%>/templates/layout/home-header.js": ["<%=srcDir%>/templates/layout/home-header.hbs"],
+          "<%=tempDir%>/templates/layout/home-link-list-layout.js": ["<%=srcDir%>/templates/layout/home-link-list-layout.hbs"],
+          "<%=tempDir%>/templates/layout/submit.js": ["<%=srcDir%>/templates/layout/submit.hbs"]
         }
       }
     },
@@ -164,7 +168,7 @@ module.exports = function(grunt) {
         tasks: ["copy:html"]
       },
       hbs: {
-        files: ["<%=srcDir%>/templates/*.hbs"],
+        files: ["<%=srcDir%>/templates/**/*.hbs"],
         tasks: ["handlebars"]
       },
       options: {

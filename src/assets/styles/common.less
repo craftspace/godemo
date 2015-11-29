@@ -1,10 +1,15 @@
-//css reset + override
+//css reset + override + layout
+a[data-href] {
+  cursor: pointer;
+}
+
 ol, ul {
   list-style: none;
   padding-left: 0;
 }
 
 .main-body {
+  min-height: 300px;
   margin-top: 60px;
   .nav-tabs > li.active > a,
   .nav-tabs > li.active > a:focus,
@@ -21,6 +26,7 @@ ol, ul {
     background-color: #fff;
     border-top: 3px solid #dd4814;
     border-bottom: 1px solid #fff;
+    cursor: pointer;
   }
   .nav-tabs {
     margin-top: -32px;
@@ -36,8 +42,14 @@ ol, ul {
       }
     }
   }
-  .header {
+  .home-header {
     margin-bottom: 10px;
+    .submit-btn {
+      margin-top: 40px;
+    }
+  }
+  .submit-form {
+    margin-bottom: 20px;
   }
 }
 

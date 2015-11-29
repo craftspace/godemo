@@ -5,7 +5,6 @@
   <title>vLink</title>
   <link rel="stylesheet" href="bower_components/fontawesome/css/font-awesome.css">
   <link rel="stylesheet" href="assets/styles/all.css">
-
 </head>
 <body>
 <!--Navbar block-->
@@ -13,22 +12,22 @@
   <div class="container">
     <div class="navbar-header">
       <button type="button" class="navbar-toggle collapsed" data-toggle="collapse"
-              data-target="#bs-example-navbar-collapse-1">
+              data-target="">
         <span class="sr-only">Toggle navigation</span>
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
       </button>
-      <a class="navbar-brand" href="#"><i class="fa fa-link"></i><strong>vLink</strong></a>
+      <a class="navbar-brand" data-href="/"><i class="fa fa-link"></i><strong>vLink</strong></a>
     </div>
 
     <div class="collapse navbar-collapse">
       <ul class="nav navbar-nav">
-        <li class="active"><a href="#">Home <span class="sr-only">(current)</span></a></li>
-        <li><a href="#">Communities</a></li>
-        <li><a href="#">People</a></li>
+        <li class="active"><a data-href="/">Home <span class="sr-only">(current)</span></a></li>
+        <li><a data-href="/community">Communities</a></li>
+        <li><a data-href="/people">People</a></li>
         <li class="dropdown">
-          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+          <a href="javascript:void(0)" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
             <i class="fa fa-ellipsis-h"></i>
           </a>
           <ul class="dropdown-menu" role="menu">
@@ -49,8 +48,8 @@
         <button type="submit" class="btn btn-default">Submit</button>
       </form>
       <ul class="nav navbar-nav navbar-right">
-        <li><a href="#"><i class="fa fa-bell"></i></a></li>
-        <li><a href="#" class="avatar"><img src="assets/images/avatar_0.jpg" alt=""></a></li>
+        <li><a data-href="/"><i class="fa fa-bell"></i></a></li>
+        <li><a data-href="/" class="avatar"><img src="assets/images/avatar_0.jpg" alt=""></a></li>
       </ul>
     </div>
   </div>
@@ -58,59 +57,9 @@
 
 <!--Main body-->
 <div class="container main-body">
-
-  <div class="row clearfix header">
-    <!--Welcome block-->
-    <div class="col-xs-12 col-md-9">
-      <div class="alert alert-dismissible alert-info welcome-block">
-        <!--<button type="button" class="close" data-dismiss="alert">×</button>-->
-        <h3 class="title">Welcome!</h3>
-        <p class="desc">It looks like you haven't <span class="label label-default">subscribed</span> to any links yet. want some ideas?</p>
-        <input type="text" class="form-control input-sm" placeholder="what are you interested in?">
-      </div>
-    </div>
-
-    <!--Submit button-->
-    <div class="col-xs-12 col-md-3">
-      <a data-href="/submit" class="btn btn-success btn-block">Submit a new link</a>
-    </div>
-  </div>
-
-  <div class="row">
-    <div class="col-xs-12 col-md-9">
-      <h4>Top Links</h4>
-      <!--Tab content-->
-      <ul class="nav nav-tabs">
-        <li class="dropdown">
-          <a class="dropdown-toggle" data-toggle="dropdown" href="#">
-            more <span class="caret"></span>
-          </a>
-          <ul class="dropdown-menu">
-            <li><a data-toggle="tab">Action</a></li>
-            <li class="divider"></li>
-            <li><a data-toggle="tab">Another action</a></li>
-          </ul>
-        </li>
-        <li><a data-toggle="tab">new</a></li>
-        <li><a data-toggle="tab">rising</a></li>
-        <li><a data-toggle="tab">top</a></li>
-        <li><a data-toggle="tab">controversial</a></li>
-        <li><a data-toggle="tab">promoted</a></li>
-        <li><a data-toggle="tab">wiki</a></li>
-        <li class="active"><a href="#home" data-toggle="tab">hot</a></li>
-      </ul>
-
-      <!--Link list container-->
-      <ol class="link-list" id="link_list"></ol>
-    </div>
-
-    <!--Side-->
-
-    <div class="col-xs-12 col-md-3 sidebar">
-      <h4>Recently Viewed Links</h4>
-      <ol class="link-list" id="link_list_recent"></ol>
-    </div>
-  </div>
+  <div id="home_header"></div>
+  <div id="home_link_list_container"></div>
+  <div id="submit_container"></div>
 </div>
 
 <footer class="footer well">
