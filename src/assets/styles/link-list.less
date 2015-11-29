@@ -1,4 +1,4 @@
-.link-list {
+.link-list, .link-detail {
   .link-item {
     margin-bottom: 20px;
     &:extend(.clearfix all); // Why doesn't work?
@@ -47,17 +47,23 @@
         margin-right: 10px;
       }
     }
-    .link-meta {
-      font-size: 12px;
-      li {
-        display: inline;
-        margin-right: 20px;
-        a {
-          color: #aea79f;
-          font-weight: bold;
-        }
+  }
+  .link-meta {
+    font-size: 12px;
+    li {
+      display: inline;
+      margin-right: 20px;
+      a {
+        color: #aea79f;
+        font-weight: bold;
       }
     }
+  }
+}
+
+.link-detail {
+  .rank {
+    visibility: hidden;
   }
 }
 

@@ -6,6 +6,7 @@ define([
   var routerMap = {
     "/": "home",
     "/submit": "submit",
+    "/detail": "link-detail",
     "/user": "user",
     "/people": "people",
     "/community": "community"

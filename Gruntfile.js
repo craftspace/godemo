@@ -147,8 +147,9 @@ module.exports = function(grunt) {
           "<%=tempDir%>/templates/components/link-item.js": ["<%=srcDir%>/templates/components/link-item.hbs"],
           "<%=tempDir%>/templates/components/link-item-recent.js": ["<%=srcDir%>/templates/components/link-item-recent.hbs"],
           "<%=tempDir%>/templates/layout/home-header.js": ["<%=srcDir%>/templates/layout/home-header.hbs"],
-          "<%=tempDir%>/templates/layout/home-link-list-layout.js": ["<%=srcDir%>/templates/layout/home-link-list-layout.hbs"],
-          "<%=tempDir%>/templates/layout/submit.js": ["<%=srcDir%>/templates/layout/submit.hbs"]
+          "<%=tempDir%>/templates/layout/home-link-list.js": ["<%=srcDir%>/templates/layout/home-link-list.hbs"],
+          "<%=tempDir%>/templates/layout/submit.js": ["<%=srcDir%>/templates/layout/submit.hbs"],
+          "<%=tempDir%>/templates/layout/link-detail.js": ["<%=srcDir%>/templates/layout/link-detail.hbs"]
         }
       }
     },

@@ -1,6 +1,6 @@
 define([
   "../../templates/layout/home-header",
-  "../../templates/layout/home-link-list-layout",
+  "../../templates/layout/home-link-list",
   "../../templates/components/link-item",
   "../../templates/components/link-item-recent"
 ], function(headerTpl, layoutTpl, itemTpl, itemRecentTpl) {

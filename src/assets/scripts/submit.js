@@ -10,7 +10,7 @@ define([
     $("#submit_button").click(function() {
       // TODO BAD SMELL
       $container.empty();
-      page("/");
+      page("/detail");
     });
   };
 

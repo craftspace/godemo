@@ -18,6 +18,7 @@ define([
       $("#link_list").empty();
       $("#link_list_recent").empty();
       $("#submit_container").empty();
+      $("#link_detail_container").empty();
       page(url);
     }
     e.preventDefault();
