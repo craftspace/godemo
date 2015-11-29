@@ -1,5 +1,7 @@
 module.exports = function(grunt) {
   "use strict";
+  var serveStatic = require("serve-static");
+  var rewrite = require('connect-modrewrite');
 
   grunt.initConfig({
     port: 5601,
@@ -32,6 +34,12 @@ module.exports = function(grunt) {
         cwd: "<%=srcDir%>",
         expand: true,
         src: ["**/*", "!assets/**/*.{less,css}", "!*/*.hbs"],
+        dest: "<%=tempDir%>"
+      },
+      html: {
+        cwd: "<%=srcDir%>",
+        expand: true,
+        src: ["**/*.html"],
         dest: "<%=tempDir%>"
       }
     },
@@ -133,7 +141,7 @@ module.exports = function(grunt) {
         }
       }
     },
-    // watch for changes to source
+    // Watch for changes to source
     // Better than calling grunt a million times
     watch: {
       js: {
@@ -144,6 +152,10 @@ module.exports = function(grunt) {
         files: ["<%=srcDir%>/**/*.{less,css}"],
         tasks: ["less", "concat:css"]
       },
+      html: {
+        files: ["<%=srcDir%>/**/*.html"],
+        tasks: ["copy:html"]
+      },
       hbs: {
         files: ["<%=srcDir%>/templates/*.hbs"],
         tasks: ["handlebars"]
@@ -153,19 +165,31 @@ module.exports = function(grunt) {
       }
     },
 
+    // Open the browser
     open: {
       server: {
         path: "http://localhost:<%=port%>/"
       }
     },
 
+    // Start server
     connect: {
       dev: {
         options: {
           port: "<%=port%>",
-          livereload: true,
           base: ["<%=tempDir%>"],
-          middleware: null
+          //debug: true,
+          livereload: true,
+          middleware: function(connect, options) {
+            return [
+              rewrite([
+                "!\\.html|/api|\\.js|\\.svg|" +
+                "\\.css|\\.png|\\.jpg|\\.gif|" +
+                "\\.ico|\\.woff|\\.eot|\\.ttf|\\.md$ /index.html [L]"
+              ]),
+              serveStatic(options.base[0])
+            ];
+          }
         }
       }
     }

@@ -22,7 +22,7 @@
       <a class="navbar-brand" href="#"><i class="fa fa-link"></i><strong>vLink</strong></a>
     </div>
 
-    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+    <div class="collapse navbar-collapse">
       <ul class="nav navbar-nav">
         <li class="active"><a href="#">Home <span class="sr-only">(current)</span></a></li>
         <li><a href="#">Communities</a></li>
@@ -59,12 +59,21 @@
 <!--Main body-->
 <div class="container main-body">
 
-  <!--Welcome block-->
-  <div class="alert alert-dismissible alert-info welcome-block">
-    <button type="button" class="close" data-dismiss="alert">×</button>
-    <h3 class="title">Welcome!</h3>
-    <p class="desc">it looks like you haven't <span class="label label-default">subscribed</span> to any vlinks yet. want some ideas?</p>
-    <input type="text" class="form-control input-sm" placeholder="what are you interested in?">
+  <div class="row clearfix header">
+    <!--Welcome block-->
+    <div class="col-xs-12 col-md-9">
+      <div class="alert alert-dismissible alert-info welcome-block">
+        <!--<button type="button" class="close" data-dismiss="alert">×</button>-->
+        <h3 class="title">Welcome!</h3>
+        <p class="desc">It looks like you haven't <span class="label label-default">subscribed</span> to any links yet. want some ideas?</p>
+        <input type="text" class="form-control input-sm" placeholder="what are you interested in?">
+      </div>
+    </div>
+
+    <!--Submit button-->
+    <div class="col-xs-12 col-md-3">
+      <a href="/submit" class="btn btn-success btn-block">Submit a new link</a>
+    </div>
   </div>
 
   <div class="row">
@@ -77,24 +86,26 @@
             more <span class="caret"></span>
           </a>
           <ul class="dropdown-menu">
-            <li><a href="#dropdown1" data-toggle="tab">Action</a></li>
+            <li><a data-toggle="tab">Action</a></li>
             <li class="divider"></li>
-            <li><a href="#dropdown2" data-toggle="tab">Another action</a></li>
+            <li><a data-toggle="tab">Another action</a></li>
           </ul>
         </li>
-        <li><a href="#profile" data-toggle="tab">new</a></li>
-        <li><a href="#profile" data-toggle="tab">rising</a></li>
-        <li><a href="#profile" data-toggle="tab">top</a></li>
-        <li><a href="#profile" data-toggle="tab">controversial</a></li>
-        <li><a href="#profile" data-toggle="tab">promoted</a></li>
-        <li><a href="#profile" data-toggle="tab">wiki</a></li>
+        <li><a data-toggle="tab">new</a></li>
+        <li><a data-toggle="tab">rising</a></li>
+        <li><a data-toggle="tab">top</a></li>
+        <li><a data-toggle="tab">controversial</a></li>
+        <li><a data-toggle="tab">promoted</a></li>
+        <li><a data-toggle="tab">wiki</a></li>
         <li class="active"><a href="#home" data-toggle="tab">hot</a></li>
       </ul>
 
       <!--Link list container-->
       <ol class="link-list" id="link_list"></ol>
     </div>
-    <!--right-->
+
+    <!--Side-->
+
     <div class="col-xs-12 col-md-3 sidebar">
       <h4>Recently Viewed Links</h4>
       <ol class="link-list" id="link_list_recent"></ol>
