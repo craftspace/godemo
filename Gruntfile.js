@@ -191,17 +191,18 @@ module.exports = function(grunt) {
         options: {
           port: "<%=port%>",
           base: ["<%=tempDir%>"],
-          debug: true,
-          //livereload: true,
+          //debug: true,
+          livereload: true,
           middleware: function(connect, options) {
-            //connect().use(require('serve-favicon')(options.base[0] + "/favicon.ico"));
             return [
               rewrite([
+                //"^/favicon.ico$ /favicon.ico",
                 "!\\.html|/api|\\.js|\\.svg|" +
                 "\\.css|\\.png|\\.jpg|\\.gif|" +
                 "\\.ico|\\.woff|\\.eot|\\.ttf|\\.md$ /index.html [L]"
               ]),
-              serveStatic(options.base[0])
+              serveStatic(options.base[0]),
+              connect().use(require('serve-favicon')(options.base[0] + "/favicon.ico")) // Seems not work?
             ];
           }
         }
