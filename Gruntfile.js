@@ -144,15 +144,16 @@ module.exports = function(grunt) {
         },
         files: {
           // any other choices?
-          "<%=tempDir%>/templates/components/link-item.js": ["<%=srcDir%>/templates/components/link-item.hbs"],
-          "<%=tempDir%>/templates/components/link-item-recent.js": ["<%=srcDir%>/templates/components/link-item-recent.hbs"],
-          "<%=tempDir%>/templates/layout/home-header.js": ["<%=srcDir%>/templates/layout/home-header.hbs"],
-          "<%=tempDir%>/templates/layout/home-link-list.js": ["<%=srcDir%>/templates/layout/home-link-list.hbs"],
-          "<%=tempDir%>/templates/layout/submit.js": ["<%=srcDir%>/templates/layout/submit.hbs"],
-          "<%=tempDir%>/templates/layout/link-detail.js": ["<%=srcDir%>/templates/layout/link-detail.hbs"]
+          "<%=tempDir%>/assets/templates/components/link-item.js": ["<%=srcDir%>/assets/templates/components/link-item.hbs"],
+          "<%=tempDir%>/assets/templates/components/link-item-recent.js": ["<%=srcDir%>/assets/templates/components/link-item-recent.hbs"],
+          "<%=tempDir%>/assets/templates/layout/home-header.js": ["<%=srcDir%>/assets/templates/layout/home-header.hbs"],
+          "<%=tempDir%>/assets/templates/layout/home-link-list.js": ["<%=srcDir%>/assets/templates/layout/home-link-list.hbs"],
+          "<%=tempDir%>/assets/templates/layout/submit.js": ["<%=srcDir%>/assets/templates/layout/submit.hbs"],
+          "<%=tempDir%>/assets/templates/layout/link-detail.js": ["<%=srcDir%>/assets/templates/layout/link-detail.hbs"]
         }
       }
     },
+
     // Watch for changes to source
     // Better than calling grunt a million times
     watch: {
@@ -169,7 +170,7 @@ module.exports = function(grunt) {
         tasks: ["copy:html"]
       },
       hbs: {
-        files: ["<%=srcDir%>/templates/**/*.hbs"],
+        files: ["<%=srcDir%>/assets/templates/**/*.hbs"],
         tasks: ["handlebars"]
       },
       options: {
@@ -190,9 +191,10 @@ module.exports = function(grunt) {
         options: {
           port: "<%=port%>",
           base: ["<%=tempDir%>"],
-          //debug: true,
-          livereload: true,
+          debug: true,
+          //livereload: true,
           middleware: function(connect, options) {
+            //connect().use(require('serve-favicon')(options.base[0] + "/favicon.ico"));
             return [
               rewrite([
                 "!\\.html|/api|\\.js|\\.svg|" +

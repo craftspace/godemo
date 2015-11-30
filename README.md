@@ -10,8 +10,7 @@
 
 # Install
 
-    npm install -g grunt-cli
-    npm install -g bower
+    npm install -g grunt-cli bower
     npm install && bower install
 
 # Run
@@ -21,7 +20,7 @@
 
 # Build
 
-    npm build
+    grunt build
 
 # Test
 

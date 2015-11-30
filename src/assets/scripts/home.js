@@ -1,23 +1,41 @@
 define([
-  "../../templates/layout/home-header",
-  "../../templates/layout/home-link-list",
-  "../../templates/components/link-item",
-  "../../templates/components/link-item-recent"
+  "../templates/layout/home-header",
+  "../templates/layout/home-link-list",
+  "../templates/components/link-item",
+  "../templates/components/link-item-recent"
 ], function(headerTpl, layoutTpl, itemTpl, itemRecentTpl) {
   "use strict";
-  var init = function() {
-    // TODO BAD SMELL
-    $("#home_header").html(headerTpl);
-    $("#home_link_list_container").html(layoutTpl);
+  var $body = $("body"),
+    $header = $("#home_header"),
+    $container = $("#home_link_list_container"),
+    $ListContainer, $listRecentContainer;
 
-    var $linkListContainer = $("#link_list");
+  var initEvents = function() {
+    $body.one("destroy", function() {
+      [
+        $header,
+        $container,
+        $ListContainer,
+        $listRecentContainer
+      ].forEach(function($elem) {
+        $elem.empty();
+      });
+    });
+  };
+
+  var init = function() {
+    initEvents();
+    $header.html(headerTpl);
+    $container.html(layoutTpl);
+
+    $ListContainer = $("#link_list");
     $.getJSON("mock/links.json").done(function(result) {
-      $linkListContainer.html(itemTpl(result));
+      $ListContainer.html(itemTpl(result));
     });
 
-    var $linkListRecentContainer = $("#link_list_recent");
+    $listRecentContainer = $("#link_list_recent");
     $.getJSON("mock/links.json").done(function(result) {
-      $linkListRecentContainer.html(itemRecentTpl(result));
+      $listRecentContainer.html(itemRecentTpl(result));
     });
   };
 

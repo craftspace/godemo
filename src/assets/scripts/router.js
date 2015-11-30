@@ -2,6 +2,8 @@ define([
   "page"
 ], function(page) {
   "use strict";
+  // TODO  No elements should be here
+  var $body = $("body");
 
   var routerMap = {
     "/": "home",
@@ -13,8 +15,10 @@ define([
   };
 
   var setRouter = function(router) {
-    page(router, function(ctx) {
-      console.log(ctx);
+    page(router, function() {
+      //TODO
+      //$body.trigger("destroy." + page.current);
+      $body.trigger("destroy");
       require([routerMap[router]], function(module) {
         module && module.init && module.init();
       });
@@ -30,14 +34,7 @@ define([
     console.error('Page not found :(');
   });
 
-
-  var pathname = location.pathname;
-  if (routerMap[pathname]) {
-    page(pathname);
-  } else {
-    console.log("404");
-    //Redirect to 404
-  }
+  page.start();
 
   return page;
 });
