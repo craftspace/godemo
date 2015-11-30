@@ -7,15 +7,14 @@ nodes:
       commands:
       - wget http://relfs.aas.eng.vmware.com/pub/programs/node/node-v0.12.6-linux-x64.tar.gz
       - tar --strip-components 1 -xzvf node-v* -C /usr/local
-      - npm install -g bower grunt-cli --registry=http://build-bower-mirror.eng.vmware.com:9999
+      - npm install -g bower grunt-cli cnpm
     run:
       commands:
-      # TODD rm
       - echo "!!! Fix ERROR of unknown build-bower-mirror Name"
       - echo -e "\n10.163.0.51 build-bower-mirror" >> /etc/hosts
       - cat /etc/hosts
-      - bower install --config.registry=http://build-bower-mirror:8888  --allow-root
-      - npm install --production --registry=http://build-bower-mirror.eng.vmware.com:9999
+      - bower install --allow-root
+      - cnpm install
       - grunt build
 #    capture:
 #      files:
