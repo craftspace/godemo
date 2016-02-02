@@ -8,6 +8,7 @@ module.exports = function(grunt) {
     liveReloadPort: 35729,
     srcDir: "src",
     tempDir: "temp",
+    templateDir: "<%=tempDir%>/assets/templates",
     // Import package manifest
     pkg: grunt.file.readJSON("package.json"),
 
@@ -26,6 +27,11 @@ module.exports = function(grunt) {
     // Clean the project
     clean: {
       temp: ["<%=tempDir%>"]
+    },
+
+    // Run some tasks in parallel to speed up the build process
+    concurrent: {
+      server: ["copy:src"]
     },
 
     // Copy files
@@ -89,7 +95,8 @@ module.exports = function(grunt) {
         files: {
           "<%=tempDir%>/assets/styles/all.css": [
             "<%=tempDir%>/assets/styles/all.css",
-            "<%=srcDir%>/assets/styles/vendor/*.css"
+            "<%=srcDir%>/assets/styles/vendor/*.css",
+            "<%=srcDir%>/bower_components/select2/dist/css/select2.css"
           ]
         }
       }
@@ -111,7 +118,8 @@ module.exports = function(grunt) {
     uglify: {
       js: {
         options: {
-          banner: "<%=meta.banner%>"
+          banner: "<%=meta.banner%>",
+          compress: true
         },
         files: {
           "<%=tempDir%>/app.js": "<%=tempDir%>/app.js"
@@ -143,13 +151,10 @@ module.exports = function(grunt) {
           }
         },
         files: {
-          // any other choices?
-          "<%=tempDir%>/assets/templates/components/link-item.js": ["<%=srcDir%>/assets/templates/components/link-item.hbs"],
-          "<%=tempDir%>/assets/templates/components/link-item-recent.js": ["<%=srcDir%>/assets/templates/components/link-item-recent.hbs"],
-          "<%=tempDir%>/assets/templates/layout/home-header.js": ["<%=srcDir%>/assets/templates/layout/home-header.hbs"],
-          "<%=tempDir%>/assets/templates/layout/home-link-list.js": ["<%=srcDir%>/assets/templates/layout/home-link-list.hbs"],
-          "<%=tempDir%>/assets/templates/layout/submit.js": ["<%=srcDir%>/assets/templates/layout/submit.hbs"],
-          "<%=tempDir%>/assets/templates/layout/link-detail.js": ["<%=srcDir%>/assets/templates/layout/link-detail.hbs"]
+          // TODO any other choices?
+          "<%=templateDir%>/layout/user.js": ["<%=srcDir%>/assets/templates/layout/user.hbs"],
+          "<%=templateDir%>/layout/tag.js": ["<%=srcDir%>/assets/templates/layout/tag.hbs"],
+          "<%=templateDir%>/layout/search-result.js": ["<%=srcDir%>/assets/templates/layout/search-result.hbs"]
         }
       }
     },
@@ -172,6 +177,10 @@ module.exports = function(grunt) {
       hbs: {
         files: ["<%=srcDir%>/assets/templates/**/*.hbs"],
         tasks: ["handlebars"]
+      },
+      gruntfile: {
+        files: ['Gruntfile.js'],
+        tasks: ["build"]
       },
       options: {
         livereload: "<%=liveReloadPort%>"
@@ -196,6 +205,7 @@ module.exports = function(grunt) {
           middleware: function(connect, options) {
             return [
               rewrite([
+                "^/app/v1/(.*)$ http://127.0.0.1:8000/app/v1/$1 [P]",
                 //"^/favicon.ico$ /favicon.ico",
                 "!\\.html|/api|\\.js|\\.svg|" +
                 "\\.css|\\.png|\\.jpg|\\.gif|" +
@@ -214,6 +224,7 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks("grunt-contrib-concat");
   grunt.loadNpmTasks("grunt-contrib-jshint");
   grunt.loadNpmTasks("grunt-contrib-clean");
+  grunt.loadNpmTasks("grunt-concurrent");
   grunt.loadNpmTasks("grunt-contrib-copy");
   grunt.loadNpmTasks("grunt-contrib-uglify");
   grunt.loadNpmTasks("grunt-contrib-less");
@@ -223,10 +234,11 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks("grunt-contrib-connect");
   grunt.loadNpmTasks("grunt-open");
 
-  grunt.registerTask("build", ["clean", "copy:src", "less", "concat:css", "handlebars"]);
-  grunt.registerTask("default", ["jshint", "build", "connect:dev", "open", "watch"]);
-  grunt.registerTask("release", ["default", "uglify", "cssmin", "connect:dev", "open", "watch"]);
+  grunt.registerTask("build", ["jshint", "clean", "concurrent:server", "less", "concat:css", "handlebars"]);
+  grunt.registerTask("default", ["build", "connect:dev", "open", "watch"]);
+  grunt.registerTask("release", ["build", "uglify:js", "concat:js", "cssmin", "connect:dev", "open", "watch"]);
+  grunt.registerTask("distribute", ["build", "uglify:js", "concat:js", "cssmin"]);
+  //grunt.registerTask("travis", ["build"]);
   grunt.registerTask("serve", ["default"]);
-  grunt.registerTask("travis", ["default"]);
 
 };

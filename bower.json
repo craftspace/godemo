@@ -1,10 +1,8 @@
 {
-  "name": "vlink",
-  "version": "0.1.0",
-  "homepage": "https://github.com/craftspace/vlink",
-  "authors": [
-    "nomospace <lujin@vmware.com>"
-  ],
+  "name": "godemo",
+  "version": "1.0.0",
+  "homepage": "https://github.com/craftspace/godemo",
+  "authors": [],
   "main": "bower.json",
   "license": "MIT",
   "ignore": [
@@ -22,7 +20,13 @@
     "moment": "~2.10.6",
     "fontawesome": "~4.5.0",
     "handlebars": "~4.0.5",
-    "page": "visionmedia/page.js#~1.6.4"
+    "page": "visionmedia/page.js#~1.6.4",
+    "bootstrap-validator": "~0.9.0",
+    "twbs-pagination": "~1.3.1",
+    "select2": "~4.0.1",
+    "store2": "~2.3.2",
+    "mousetrap": "~1.5.3",
+    "overtrue-share.js": "~1.0.1"
   },
   "devDependencies": {}
 }

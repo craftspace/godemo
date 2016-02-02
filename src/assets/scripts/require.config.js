@@ -3,21 +3,19 @@
 
   require.config({
     waitSeconds: 0,
-    baseUrl: "assets/scripts",
     urlArgs: "r=@REV@",
+    baseUrl: "/assets/scripts",
+    restUrl: "/app/v1/", // server url prefix
     paths: {
-      moment: "../../bower_components/moment/moment",
-      lodash: "../../bower_components/underscore/underscore",
-      bootstrap: "../../bower_components/bootstrap/dist/js/bootstrap",
       jquery: "../../bower_components/jquery/dist/jquery",
+      bootstrap: "../../bower_components/bootstrap/dist/js/bootstrap",
+      lodash: "../../bower_components/underscore/underscore",
       handlebars: "../../bower_components/handlebars/handlebars.runtime",
+      moment: "../../bower_components/moment/moment",
       page: "../../bower_components/page/page",
-      text: "../../bower_components/requirejs-text/text"
+      store: "../../bower_components/store2/dist/store2"
     },
     shim: {
-      jquery: {
-        exports: "jQuery"
-      },
       bootstrap: {
         deps: ["jquery"]
       }

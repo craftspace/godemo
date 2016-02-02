@@ -2,7 +2,7 @@ define([], function() {
   "use strict";
 
   var init = function(text) {
-    console.log("Home", text);
+    console.log("Tag", text);
   };
 
   return {

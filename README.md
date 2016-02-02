@@ -1,32 +1,23 @@
-# vLink
+# Godemo
 
-[![build status][travis-image]][travis-url]
 [![node version][node-image]][node-url]
 
-[travis-image]: https://img.shields.io/travis/craftspace/vlink.svg?style=flat-square
-[travis-url]: https://travis-ci.org/craftspace/vlink
 [node-image]: https://img.shields.io/badge/node.js-%3E=_4.2-green.svg?style=flat-square
 [node-url]: http://nodejs.org/download/
 
-# Install
+## Developing
+If you'd like to run it locally, and modify something, you can do so by cloning this repo and running the following commands (assuming that you have Node, NPM, Python, Grunt and Bower installed).
 
-    npm install -g grunt-cli bower
-    npm install && bower install
+```bash  
+# Clone and Install dependencies  
+$ git clone https://github.com/craftspace/godemo.git  
+$ npm install  
+$ bower install  
 
-# Run
-    
-    grunt serve     // development
-    grunt release   // production
+# Start the node server on localhost:5601 on development mode    
+# Watches for changes, automatically recompiles files and refreshes the browser  
+$ grunt serve  
 
-# Build
-
-    grunt build
-
-# Test
-
-    npm test
-
-# Build war
-
-
-# Documentation
+# Start the node server on production mode  
+$ grunt release  
+```

@@ -2,77 +2,25 @@
 <html>
 <head>
   <meta charset="UTF-8">
-  <title>vLink</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1, minimal-ui, maximum-scale=1, user-scalable=no"/>
-  <link rel="stylesheet" href="bower_components/fontawesome/css/font-awesome.css">
-  <link rel="stylesheet" href="assets/styles/all.css">
+  <title>Godemo</title>
+  <meta name="viewport" content="initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no"/>
+  <link rel="stylesheet" href="/assets/styles/all.css">
 </head>
 <body>
 <!--Navbar block-->
 <nav class="topbar navbar navbar-default navbar-fixed-top">
   <div class="container">
-    <div class="navbar-header">
-      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse"
-              data-target="#navbar-main">
-        <span class="sr-only">Toggle navigation</span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-      </button>
-      <a class="navbar-brand" data-href="/"><i class="fa fa-link"></i><strong>vLink</strong></a>
-    </div>
-
     <div class="collapse navbar-collapse" id="navbar-main">
-      <ul class="nav navbar-nav">
-        <li class="active"><a data-href="/">Home <span class="sr-only">(current)</span></a></li>
-        <li><a data-href="/community">Communities</a></li>
-        <li><a data-href="/people">People</a></li>
-        <li class="dropdown">
-          <a href="javascript:void(0)" class="dropdown-toggle" data-target="navbar-main"
-             data-toggle="dropdown" role="button" aria-expanded="false">
-            <i class="fa fa-ellipsis-h"></i>
-          </a>
-          <ul class="dropdown-menu" role="menu">
-            <li><a data-href="/tags">Tags</a></li>
-            <li><a data-href="/topics">Topics</a></li>
-            <li><a data-href="/others">others</a></li>
-            <li class="divider"></li>
-            <li><a data-href="/logout">Logout</a></li>
-          </ul>
-        </li>
-      </ul>
-      <!--<form class="navbar-form navbar-left" role="search">-->
-        <!--<div class="form-group">-->
-          <!--<input type="text" class="form-control input-sm" placeholder="Search">-->
-        <!--</div>-->
-        <!--<button type="submit" class="btn btn-default">Submit</button>-->
-      <!--</form>-->
-      <ul class="nav navbar-nav navbar-right">
-        <!--<li><a data-href="/"><i class="fa fa-bell"></i></a></li>-->
-        <li><a data-href="/profile" class="avatar"><img src="assets/images/avatar_0.jpg" alt=""></a></li>
+      <ul class="nav navbar-nav" id="top_navbar">
+        <li><a data-href="/">Home</a></li>
+        <li><a data-href="/tag">Tags</a></li>
+        <li><a data-href="/user">Users</a></li>
       </ul>
     </div>
   </div>
 </nav>
 
-<!--Main body-->
-<div class="main-body">
-  <div id="home_header"></div>
-  <div class="container">
-    <div id="home_link_list_container"></div>
-    <div id="submit_container"></div>
-    <div id="link_detail_container"></div>
-  </div>
-</div>
-
-<footer class="footer">
-  <div class="container">
-    <span> Copyright © 2015,</span>
-    <a href="http://www.vmware.com/" target="_blank">VMware, Inc.</a><span> All Rights Reserved</span>
-  </div>
-</footer>
-
-<script src="bower_components/requirejs/require.js"></script>
-<script src="assets/scripts/require.config.js"></script>
+<script src="/bower_components/requirejs/require.js"></script>
+<script src="/assets/scripts/require.config.js"></script>
 </body>
 </html>

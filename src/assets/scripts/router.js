@@ -7,20 +7,18 @@ define([
 
   var routerMap = {
     "/": "home",
-    "/submit": "submit",
-    "/detail": "link-detail",
     "/user": "user",
-    "/people": "people",
-    "/community": "community"
+    "/tag": "tag",
+    "/search": "search-result",
+    "/search/:id(.*)": "search-result"
   };
 
   var setRouter = function(router) {
-    page(router, function() {
-      //TODO
+    page(router, function(ctx) {
       //$body.trigger("destroy." + page.current);
       $body.trigger("destroy");
       require([routerMap[router]], function(module) {
-        module && module.init && module.init();
+        module && module.init && module.init(ctx.params.id);
       });
     });
   };
@@ -34,6 +32,7 @@ define([
     console.error('Page not found :(');
   });
 
+  page.maps = routerMap;
   page.start();
 
   return page;
